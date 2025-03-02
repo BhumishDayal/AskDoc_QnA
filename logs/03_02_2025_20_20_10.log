@@ -1,0 +1,13 @@
+INFO:root:Data loading...
+INFO:root:Data successfully loaded from uploaded file.
+INFO:root:Embedding model processing...
+ERROR:root:Error in embedding process: 
+******
+Could not load OpenAI model. If you intended to use OpenAI, please check your OPENAI_API_KEY.
+Original error:
+No API key found for OpenAI.
+Please set either the OPENAI_API_KEY environment variable or openai.api_key prior to initialization.
+API keys can be found or created at https://platform.openai.com/account/api-keys
+
+To disable the LLM entirely, set llm=None.
+******
