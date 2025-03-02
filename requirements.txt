@@ -7,4 +7,5 @@ IPython
 llama-index-embeddings-gemini
 streamlit
 streamlit-chat
-pdfminer.six python-docx
+pdfminer.six 
+python-docx
