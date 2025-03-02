@@ -6,10 +6,8 @@ from llama_index.core.memory.chat_memory_buffer import ChatMemoryBuffer as ChatM
 from streamlit_chat import message
 
 def main():
-    # Set page configuration with a title and layout
     st.set_page_config(page_title="AskDoc - Document QnA", layout="wide")
 
-    # Modern, seamless UI inspired by advanced AI design tools
     st.markdown(
         """
         <style>
@@ -77,7 +75,6 @@ def main():
         unsafe_allow_html=True
     )
 
-    # Sidebar - Document Upload
     st.sidebar.header("📂 Upload Document")
     doc = st.sidebar.file_uploader("Upload a document", type=["txt", "pdf", "docx"], help="Supports TXT, PDF, and DOCX formats")
     
@@ -88,7 +85,6 @@ def main():
         st.session_state.chat_memory = ChatMemory(token_limit=2048)
         st.success("Chat history cleared!")
 
-    # Initialize chat memory
     if 'chat_memory' not in st.session_state:
         st.session_state.chat_memory = ChatMemory(token_limit=2048)
 
@@ -100,7 +96,6 @@ def main():
     user_question = st.text_input("Ask a question about your document...", key="input", on_change=lambda: st.session_state.update({'submit': True}))
     submit_button = st.button("Send")
 
-    # Check if Enter is pressed
     if "submit" in st.session_state and st.session_state.submit:
         submit_button = True
         st.session_state.submit = False
@@ -121,7 +116,6 @@ def main():
     elif submit_button:
         st.warning("⚠️ Please upload a document and enter a question.")
     
-    # Display Chat History in Single Chat Box Style with Enhanced Readability
     st.markdown("<div class='chat-container'>", unsafe_allow_html=True)
     if "chat_memory" in st.session_state and len(st.session_state.chat_memory.get_all()) > 0:
         for chat in st.session_state.chat_memory.get_all():
